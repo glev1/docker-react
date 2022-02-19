@@ -1,0 +1,12 @@
+sudo: required
+language: generic
+services: 
+  - docker
+
+before_instal:
+  - docker build -f Dockerfile.dev -t guilevi/docker-react .
+
+script:
+  - docker run -e CI=true guilevi/docker-react npm run test
+
+  
